@@ -21,12 +21,12 @@ class Server:
     def verify_device_response(self, device_id, signature, device_nonce, ec_public_key):
         if device_nonce in self.used_nonces:
             print("[Servidor] Nonce repetido detectado")
-            return None
+            raise ValueError("Nonce repetido detectado")
         self.used_nonces.add(device_nonce)
         
         if device_id not in self.device_registry:
             print(f"[Servidor] ID desconocido: {device_id}")
-            return None
+            raise ValueError("Dispositivo no registrado")
 
         expected_public_key = self.device_registry[device_id]
 
@@ -58,4 +58,5 @@ class Server:
             return (signature, server_ec_public)
         except Exception as e:
             print("[Servidor] Error verificando firma:",e)
-            return None
+            raise ValueError("Error verificando firma")
+        
