@@ -152,12 +152,11 @@ La ejecución completa del protocolo debe mostrar en consola:
 
 Equipo del proyecto – Criptografía 2025-2:
 
+- Arellano Hernández Israel
 - Toledo Valencia Jesús Antonio  
 - Vallejo Escamilla Oscar Daniel  
 - Arredondo Granados Gerardo  
 - García Hernández Diego Aldair  
-- C
-
 
 ---
 
