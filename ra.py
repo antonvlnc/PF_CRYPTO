@@ -4,12 +4,16 @@ import os
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 
+DEVICE_KEY_PATH = "device_private.pem"
+SERVER_KEY_PATH = "server_private.pem"
+
+
 class RegistrationAuthority:
     def __init__(self):
-        # Cargar claves si existen, si no generarlas
+        # Cargar claves del dispostivio o generarlas
         if os.path.exists("device_private.pem"):
             print("[RA] Clave privada del dispositivo cargada desde 'device_private.pem'")
-            self.device_private_key = self._load_key("device_private.pem")
+            self.device_private_key = self._load_key(DEVICE_KEY_PATH)
             self.device_public_key = self.device_private_key.public_key()
         else:
             print("[RA] Generando nueva clave privada para el dispositivo")
@@ -18,11 +22,12 @@ class RegistrationAuthority:
                 key_size=2048
             )
             self.device_public_key = self.device_private_key.public_key()
-            self._save_key(self.device_private_key, "device_private.pem")
+            self._save_key(self.device_private_key, DEVICE_KEY_PATH)
 
-        if os.path.exists("server_private.pem"):
+        # Cargar claves del servidor o generarlas
+        if os.path.exists(SERVER_KEY_PATH):
             print("[RA] Clave privada del servidor cargada desde 'server_private.pem'")
-            self.server_private_key = self._load_key("server_private.pem")
+            self.server_private_key = self._load_key(SERVER_KEY_PATH)
             self.server_public_key = self.server_private_key.public_key()
         else:
             print("[RA] Generando nueva clave privada para el servidor")
@@ -31,7 +36,7 @@ class RegistrationAuthority:
                 key_size=2048
             )
             self.server_public_key = self.server_private_key.public_key()
-            self._save_key(self.server_private_key, "server_private.pem")
+            self._save_key(self.server_private_key, SERVER_KEY_PATH)
 
     def _save_key(self, key, filename):
         with open(filename, "wb") as f:
