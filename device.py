@@ -66,4 +66,3 @@ class Device:
         except Exception as e:
             print("[Dispositivo] Error verificando firma del servidor",e)
             return False
-

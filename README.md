@@ -144,7 +144,7 @@ La ejecución completa del protocolo debe mostrar en consola:
 - Comunicación cifrada (AES-GCM).
 - Confirmación de integridad.
 
-/link video
+[/link video](https://drive.google.com/file/d/1WzIFClexWa6vm-0QgSn2s6_-kGwKwxuk/view?usp=sharing)
 
 ---
 
@@ -152,12 +152,11 @@ La ejecución completa del protocolo debe mostrar en consola:
 
 Equipo del proyecto – Criptografía 2025-2:
 
+- Arellano Hernández Israel
 - Toledo Valencia Jesús Antonio  
 - Vallejo Escamilla Oscar Daniel  
 - Arredondo Granados Gerardo  
 - García Hernández Diego Aldair  
-- C
-
 
 ---
 
